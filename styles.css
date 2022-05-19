@@ -1,0 +1,227 @@
+.pp-backdrop {
+  /* background-color: rgba(0, 0, 0, 0.9); */
+  background-color: none;
+  position: fixed;
+  height: 100vh;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.pp-modal {
+  position: fixed;
+  z-index: 99;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  background-color: #ffffff;
+  width: 35vw;
+  max-height: 550px;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-130%, 60%);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1rem;
+}
+.pp-modal h2 {
+  font-size: 24px;
+  margin: 0 !important;
+}
+.pp-modal h3 {
+  font-size: 22px;
+  margin: 0 !important;
+}
+.pp-modal strong {
+  font-size: 12px;
+  color: #2d2c2c7d;
+}
+.pp-modal .pp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.pp-modal .pp-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.pp-modal .pp-body::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.pp-modal .pp-body::-webkit-scrollbar-track {
+  background-color: #ebebeb;
+}
+
+/* Handle */
+.pp-modal .pp-body::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+
+/* Handle on hover */
+.pp-modal .pp-body::-webkit-scrollbar-thumb:hover {
+  background: #2d2c2c;
+}
+
+.phone-number-field {
+  padding: 5px;
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.phone-number-field input {
+  background-color: #fff;
+  width: 80%;
+  height: 20px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.phone-number-field input:focus {
+  outline: none;
+}
+
+.pp-modal .popup-button {
+  width: 100%;
+  color: #fff;
+  padding: 1rem 1.2rem;
+  background-color: black;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  border: black;
+  cursor: pointer;
+}
+
+.pp-modal .popup-button:hover {
+  background-color: rgb(58, 58, 58);
+  border: rgb(58, 58, 58);
+}
+
+.pp-modal .jumbotron {
+  background-color: white;
+  height: auto;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 80%;
+}
+.cancel-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+#partitioned:focus {
+  outline: none;
+}
+
+#partitioned {
+  padding-left: 15px;
+  letter-spacing: 42px;
+  border: 0;
+  background-image: linear-gradient(
+    to left,
+    black 70%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 50px 1px;
+  background-repeat: repeat-x;
+  background-position-x: 35px;
+  width: 220px;
+  min-width: 220px;
+  height: 40px;
+}
+
+#divInner {
+  left: 0;
+  position: sticky;
+}
+
+#divOuter {
+  margin-left: 30px;
+  width: 190px;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  .pp-modal {
+    width: 80%;
+    max-height: 500px;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+}
+
+/* First Popup */
+
+.pp-modal-sm {
+position: fixed;
+z-index: 99;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+  rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+background-color: #ffffff;
+width: 35vw;
+min-height: 290px;
+bottom: 50%;
+left: 50%;
+transform: translate(-130%, 90%);
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+border-radius: 5px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+padding: 1rem;
+font-size: 16px
+}
+.pp-modal-sm .pp-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+}
+.pp-modal-sm .pp-body {
+/* overflow-y: scroll; */
+width: 100%;
+}
+
+.pp-modal-sm .pp-buttons-div{
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 60%;
+}
+.pp-modal-sm .pp-buttons-div .btn-green{
+width: 180px;
+padding: 0.7rem;
+color: rgb(255, 255, 255);
+background-color: rgb(99, 206, 79);
+border: rgb(99, 206, 79);
+}
+
+@media only screen and (max-width: 768px) {
+.pp-modal-sm {
+  width: 90%;
+  bottom: 50%;
+left: 50%;
+transform: translate(-50%, 50%);
+}
+}
