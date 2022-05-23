@@ -201,7 +201,7 @@ window.addEventListener("load", () => {
                     </div>
                     <div style="display:flex;justify-content: space-between;align-items:center;margin-bottom: 1rem;">
                         <img src="https://img.icons8.com/dusk/344/security-checked--v1.png" width="50">
-                        <h3 style="width: 70%;">Chase</h3>
+                        <h3 style="width: 70%;">test</h3>
                         <img src="https://img.icons8.com/material-outlined/344/forward.png" width="50">
                     </div>
                 </div>
