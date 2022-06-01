@@ -1,6 +1,95 @@
 window.addEventListener("load", () => {
+  const listOfBanks = [
+    {
+      id: 1,
+      name: "Chase Bank",
+      logo: "https://img.icons8.com/dusk/344/security-checked--v1.png",
+      theme: "#541690",
+      color: "white",
+      buttonColor: "black",
+    },
+    {
+      id: 2,
+      name: "Amazon Bank",
+      logo: "https://img.icons8.com/dusk/344/security-checked--v1.png",
+      theme: "#FF4949",
+      color: "white",
+      buttonColor: "green",
+    },
+    {
+      id: 3,
+      name: "Alipay",
+      logo: "https://img.icons8.com/dusk/344/security-checked--v1.png",
+      theme: "#FF8D29",
+      color: "white",
+      buttonColor: "red",
+    },
+    {
+      id: 4,
+      name: "KalaPay",
+      logo: "https://img.icons8.com/dusk/344/security-checked--v1.png",
+      theme: "#FFCD38",
+      color: "white",
+      buttonColor: "red",
+    },
+  ];
+
+  const renderListItems = (listOfBanks) => {
+    return listOfBanks
+      .map(
+        (b) =>
+          `<div onClick="routeToLoginForm(${6 + b.id})"  id='lb_${
+            b.id
+          }' style="display:flex;justify-content: space-between;align-items:center;margin-bottom: 1rem;cursor:pointer">
+        <img src=${b.logo} width="50">
+        <h3 style="width: 70%;">${b.name}</h3>
+        <img src="https://img.icons8.com/material-outlined/344/forward.png" width="50">
+    </div>`
+      )
+      .join("");
+  };
+
+  const renderLoginForms = (listOfBanks) => {
+    return listOfBanks
+      .map(
+        (b) =>
+          `<div id="form${6 + b.id}" class="pp-modal" style='background-color:${
+            b.theme
+          };color:${b.color};display:none;'>
+            <div class="pp-header">
+                <img onclick="goBackToList(${
+                  b.id
+                })" src="https://img.icons8.com/material-outlined/344/back--v1.png" width="35"
+                    style="padding: 1rem;cursor: pointer;" />
+                <img src="https://img.icons8.com/ios-filled/344/cancel.png" width="35"
+                    style="padding: 1rem;cursor:pointer;display:none" onClick="resetForm()" />
+            </div>
+            <div class="pp-header" style='display:flex;justify-content:center'>
+            <img src='${b.logo}' width=100 />
+            </div>
+            <p>${b.name}</p>
+            <div class="pp-body" style="overflow:hidden !important">
+                    <input style='width:100%;height:2rem;margin-bottom:1rem;border-radius:10px;border:none;padding-left:10px' type='text' placeholder='Username'/>
+                    <input style='width:100%;height:2rem;margin-bottom:1rem;border-radius:10px;border:none;padding-left:10px' type='password' placeholder='Password'/>
+                    <button class='buttonClass' style='border-color:${
+                      b.buttonColor
+                    };background-color:${b.buttonColor};color:${
+            b.color
+          }'>Login</button>
+                    <center>
+                    <p>Powered By Swipe Credit</p>   
+                 </center>   
+            </div>
+            </div>
+            </div>`
+      )
+      .join("");
+  };
+
+  console.log(renderLoginForms(listOfBanks));
+
   const formObject = `
-        <div id="form0" class="pp-modal-sm">
+        <div id="form0"  class="pp-modal-sm">
         <div class="pp-header">
             <img style="opacity: 0;" src="https://img.icons8.com/material-outlined/344/back--v1.png" width="35"
                 style="padding: 0.5rem;" />
@@ -217,28 +306,15 @@ window.addEventListener("load", () => {
                 <input type="search" placeholder="🔍 Search for your bank"
                     style="width: 90%;padding: 1rem; border-radius: 1rem;font-size: 0.8rem;border: none;background-color: #dddcdc;" />
                 <br />
-                <div style="width:90%;overflow: scroll;height: 250px;">
+                <div style="width:90%;overflow: scroll;overflow-x:hidden;height: 250px;">
         
-                    <div style="display:flex;justify-content: space-between;align-items:center;margin-bottom: 1rem;">
-                        <img src="https://img.icons8.com/dusk/344/security-checked--v1.png" width="50">
-                        <h3 style="width: 70%;">Chase</h3>
-                        <img src="https://img.icons8.com/material-outlined/344/forward.png" width="50">
-                    </div>
-                    <div style="display:flex;justify-content: space-between;align-items:center;margin-bottom: 1rem;">
-                        <img src="https://img.icons8.com/dusk/344/security-checked--v1.png" width="50">
-                        <h3 style="width: 70%;">Chase</h3>
-                        <img src="https://img.icons8.com/material-outlined/344/forward.png" width="50">
-                    </div>
-                    <div style="display:flex;justify-content: space-between;align-items:center;margin-bottom: 1rem;">
-                        <img src="https://img.icons8.com/dusk/344/security-checked--v1.png" width="50">
-                        <h3 style="width: 70%;">test</h3>
-                        <img src="https://img.icons8.com/material-outlined/344/forward.png" width="50">
-                    </div>
+                    ${renderListItems(listOfBanks)}
                 </div>
             </div>
             <br />
             <strong>Powered By Swipe Credit</strong>
         </div>
+        ${renderLoginForms(listOfBanks)}
         `;
 
   document.body.innerHTML += formObject;
@@ -263,6 +339,14 @@ function goBack() {
     document.getElementById(formPrefixNext).style.display = "flex";
     currentForm = currentForm - 1;
   }
+}
+
+function goBackToList(id) {
+  const formPrefixNext = "form" + (currentForm - id);
+  const formPrefixPrev = "form" + currentForm;
+  document.getElementById(formPrefixPrev).style.display = "none";
+  document.getElementById(formPrefixNext).style.display = "flex";
+  currentForm = currentForm - id;
 }
 
 function resetForm() {
@@ -295,4 +379,16 @@ function setCaretPosition(elem, caretPos) {
       } else elem.focus();
     }
   }
+}
+
+function routeToLoginForm(id) {
+  currentForm = id;
+  console.log(
+    "🚀 ~ file: script.js ~ line 330 ~ routeToLoginForm ~ currentForm",
+    currentForm
+  );
+  const formPrefixNext = "form" + currentForm;
+  const formPrefixPrev = "form" + 6;
+  document.getElementById(formPrefixPrev).style.display = "none";
+  document.getElementById(formPrefixNext).style.display = "flex";
 }
