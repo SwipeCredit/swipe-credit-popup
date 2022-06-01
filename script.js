@@ -173,6 +173,37 @@ window.addEventListener("load", () => {
         </div>
         <div id="form5" style="display: none;" class="pp-modal">
             <div class="pp-header">
+                <img onclick="goBack()" src="https://img.icons8.com/material-outlined/344/back--v1.png" width="35"
+                    style="padding: 1rem;cursor: pointer;" />
+                <img src="https://img.icons8.com/ios-filled/344/cancel.png" width="35"
+                    style="padding: 1rem;cursor:pointer" onClick="resetForm()" />
+            </div>
+            <div class="pp-body">
+            <img src="https://i.ibb.co/0sLpxnR/plaidpopup.jpg" alt="plaidpopup" height="150px" />
+                <h2 style="text-align:center;">Swipe Credit uses Plaid to link your bank</h2>
+                <div class="jumbotron">
+                <p style="font-weight:bold">Secure</p>
+                <div style="display:flex;justify-content: space-evenly;align-items: center;">
+                <img src="https://img.icons8.com/external-thin-kawalan-studio/24/undefined/external-tick-user-interface-thin-kawalan-studio.png"/>
+                    <p>Your credentials will never be made accessible to anyone.</p>
+                </div>
+                <hr />
+                <p style="font-weight:bold">Private</p>
+                <div style="display:flex;justify-content: space-evenly;align-items: center;">
+                <img src="https://img.icons8.com/external-thin-kawalan-studio/24/undefined/external-tick-user-interface-thin-kawalan-studio.png"/>
+                    <p>Encryption helps protect your personal financial data.</p>
+                </div>
+            </div>
+                <br />
+            </div>
+            <p>By Selecting "Continue" you agree to the <a href="#">Plaid End User Privacy Policy</a> </p>
+            <br />
+            <button onClick="routeToForm()" class="popup-button">Continue</button>
+            <br />
+            <strong>Powered By Swipe Credit</strong>
+        </div>
+        <div id="form6" style="display: none;" class="pp-modal">
+            <div class="pp-header">
                 <img style="opacity: 0;" src="https://img.icons8.com/material-outlined/344/back--v1.png" width="35"
                     style="padding: 1rem;" />
                 <img src="https://img.icons8.com/ios-filled/344/cancel.png" width="35"
