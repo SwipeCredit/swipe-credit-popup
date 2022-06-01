@@ -80,7 +80,7 @@ window.addEventListener("load", () => {
         
             </div>
             <br />
-            <button onClick="routeToForm()" class="popup-button">Resend Code</button>
+            <button onClick="routeToForm()" class="popup-button">Confirm</button>
             <br />
             <strong>Powered By Swipe Credit</strong>
         </div>
@@ -92,7 +92,7 @@ window.addEventListener("load", () => {
                     style="padding: 1rem;cursor:pointer" onClick="resetForm()" />
             </div>
             <div class="pp-body">
-                <h2 style="text-align:center;">We need a bit more info to approve your purchase</h2>
+                <h2 style="text-align:center;">We need a bit more info to submit your purchase</h2>
                 <p style="text-align:center;">Help us understand your financial situation and verify your identity
                     by sharing your transaction history and account details.
                 </p>
